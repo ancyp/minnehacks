@@ -9,6 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.neura.sampleapplication.R;
 
@@ -54,7 +58,17 @@ public class SuggestionFragment extends BaseFragment {
             default:
                 return null;
         }
-        return inflater.inflate(layout, null);
+        ScrollView scrollView = (ScrollView) inflater.inflate(layout, null);
+        LinearLayout suggestionView = (LinearLayout) scrollView.getChildAt(0);
+        ImageView imageView = new ImageView(this.getMainActivity());
+        imageView.setImageResource(R.drawable.ic_running);
+        imageView.setMinimumWidth(500);
+        imageView.setMinimumHeight(1000);
+        TextView textView = new TextView(this.getMainActivity());
+        textView.append("Stretch before running");
+        suggestionView.addView(imageView);
+        suggestionView.addView(textView);
+        return scrollView;
     }
 }
 
@@ -69,12 +83,14 @@ class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
     protected Bitmap doInBackground(String... urls) {
         String urldisplay = urls[0];
         Bitmap mIcon11 = null;
+        InputStream in = null;
         try {
-            InputStream in = new java.net.URL(urldisplay).openStream();
+            in = new java.net.URL(urldisplay).openStream();
             mIcon11 = BitmapFactory.decodeStream(in);
         } catch (Exception e) {
             Log.e("Error", e.getMessage());
             e.printStackTrace();
+        } finally {
         }
         return mIcon11;
     }

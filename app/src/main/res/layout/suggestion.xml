@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    style="@style/neura_sdk_auth_layout"
-    android:background="@color/light_white">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_height="1000px"
+     android:layout_width="500px">
 
-    <ImageView
-        android:id="@+id/logo_image"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        style="@style/neura_sdk_auth_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/red_disconnected"
-        android:src="@mipmap/neura_sdk_demo_logo" />
+        android:background="@color/light_white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/neura_sdk_demo_logo" />
 
 
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
