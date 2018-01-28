@@ -7,6 +7,7 @@
         android:id="@+id/logo_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:visibility="invisible"
         android:src="@mipmap/neura_sdk_demo_logo" />
 
     <com.neura.dashboard.view.widget.RobotoMediumTextView

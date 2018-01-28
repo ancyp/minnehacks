@@ -23,5 +23,7 @@
     <string name="add_device_capabilities">Add a device by capability</string>
     <string name="add_device_name">Add a device by name</string>
     <string name="alert_authenticate_dialog">How do you want to authenticate this device?</string>
+    <string name="undo_string">Undo action</string>
+    <string name="email_archived">random String</string>
 
 </resources>

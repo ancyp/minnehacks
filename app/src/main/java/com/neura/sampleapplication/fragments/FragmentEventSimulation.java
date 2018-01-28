@@ -39,10 +39,19 @@ public class FragmentEventSimulation extends BaseFragment {
 
         eventListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, final View view, final int position, long id) {
                 NeuraManager.getInstance().getClient().simulateAnEvent(events.get(position), new SimulateEventCallBack() {
                             @Override
                             public void onSuccess(String s) {
+                                SuggestionFragment suggestionFragment=new SuggestionFragment();
+                                Bundle suggestionBundle =  new Bundle();
+                                suggestionBundle.putInt("event", position);
+                                suggestionFragment.setArguments(suggestionBundle);
+                                getMainActivity().openFragment(suggestionFragment);
+//                                Snackbar mySnackbar = Snackbar.make(view,
+//                                        R.string.email_archived, Snackbar.LENGTH_SHORT);
+//                                mySnackbar.setAction(R.string.undo_string, new MyUndoListener());
+//                                mySnackbar.show();
                                 Log.i(getClass().getSimpleName(), "Successfully simulated: " + s);
                             }
 
